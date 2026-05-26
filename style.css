@@ -1,50 +1,80 @@
-/* Page background and default text style */
+/* Global reset and default styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 100%);
+    background: linear-gradient(135deg, #f6f8ff 0%, #e9f4ff 100%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #2d2d2d;
 }
 
-/* Outer container style */
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #ffffff;
-    padding: 30px 35px;
-    border-radius: 20px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+img {
+    max-width: 100%;
+    display: block;
 }
 
-/* Main title styling */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Outer container style */
+.container {
+    max-width: 980px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 32px 36px;
+    border-radius: 24px;
+    box-shadow: 0 18px 48px rgba(44, 78, 122, 0.12);
+    border: 1px solid rgba(15, 66, 115, 0.08);
+}
+
+/* Title styles */
 .main-title {
     margin: 0;
     text-align: center;
-    color: #1f4e79;
+    color: #083d77;
     font-size: 3rem;
     letter-spacing: 1px;
 }
 
-/* Section headings */
+h2 {
+    margin: 0 0 10px;
+    color: #215a8f;
+    font-size: 2rem;
+}
+
 .section {
-    margin-top: 28px;
+    margin-top: 30px;
 }
 
 .section h2 {
-    margin-bottom: 12px;
-    color: #34568b;
-    font-size: 1.75rem;
-    border-bottom: 3px solid #a5d8ff;
-    display: inline-block;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    background: #8fc0ff;
 }
 
 p,
-li {
+li,
+label {
     line-height: 1.8;
     font-size: 1.05rem;
-    color: #444;
+    color: #3a3a3a;
 }
 
 ul {
@@ -59,11 +89,110 @@ li {
 hr {
     border: none;
     height: 2px;
-    background: linear-gradient(to right, transparent, #a5d8ff, transparent);
-    margin: 24px 0;
+    background: linear-gradient(to right, transparent, #8fc0ff, transparent);
+    margin: 28px 0;
 }
 
-/* CSS concept cards */
+/* Form styling */
+.form {
+    display: grid;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #cbd6e1;
+    background: #f8fbff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #74a2d4;
+    box-shadow: 0 0 0 4px rgba(116, 162, 212, 0.15);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: #ffffff;
+    background: #2978b5;
+    font-weight: 700;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    background: #1d5c8f;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #8fbdd4;
+}
+
+.btn-secondary:hover {
+    background: #76a8c6;
+}
+
+/* Table / marks styling */
+.marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(36, 74, 112, 0.08);
+}
+
+.marks-table th,
+.marks-table td {
+    padding: 16px 18px;
+    text-align: left;
+}
+
+.marks-table th {
+    background: #3a7ca5;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.marks-table tr:nth-child(even) {
+    background: #f4fbff;
+}
+
+.marks-table tr:hover {
+    background: #e8f3ff;
+}
+
+.avatar {
+    display: block;
+    margin: 18px auto 14px;
+    border-radius: 50%;
+    border: 4px solid #c4e0ff;
+    background: #ffffff;
+}
+
+/* Concept cards */
 .concept-grid {
     display: grid;
     gap: 18px;
@@ -72,41 +201,41 @@ hr {
 }
 
 .concept-card {
-    padding: 18px;
-    background: #f7fbff;
-    border-radius: 16px;
-    border: 1px solid rgba(52, 86, 139, 0.12);
+    padding: 20px;
+    background: #f3f8ff;
+    border-radius: 18px;
+    border: 1px solid rgba(42, 96, 152, 0.12);
 }
 
 .concept-card h3 {
     margin-top: 0;
-    color: #1a3d6d;
+    color: #104a7f;
 }
 
 .code {
     display: inline-block;
-    background: #e1efff;
-    color: #0f3b72;
-    padding: 3px 8px;
-    border-radius: 6px;
+    background: #d8edff;
+    color: #104a7f;
+    padding: 4px 9px;
+    border-radius: 7px;
     font-family: 'Courier New', Courier, monospace;
 }
 
 .footer-note {
-    margin-top: 30px;
-    padding: 18px 22px;
-    background: #e8f5e9;
-    border-left: 5px solid #66bb6a;
-    border-radius: 12px;
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: #edf7ed;
+    border-left: 6px solid #57a773;
+    border-radius: 14px;
 }
 
 .footer-note p {
     margin: 0;
-    color: #235a37;
+    color: #225536;
     font-weight: 600;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 720px) {
     .container {
         margin: 20px;
         padding: 24px;
@@ -114,5 +243,9 @@ hr {
 
     .main-title {
         font-size: 2.4rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
     }
 }
